@@ -1,12 +1,12 @@
 package main
 
 import (
-	"belajar-go/database"
-	"belajar-go/handlers"
-	"belajar-go/repositories"
-	"belajar-go/services"
 	"encoding/json"
 	"fmt"
+	"kasir-api/database"
+	"kasir-api/handlers"
+	"kasir-api/repositories"
+	"kasir-api/services"
 	"log"
 	"net/http"
 	"os"
@@ -47,7 +47,7 @@ func main() {
 
 	// Setup routes
 	http.HandleFunc("/api/produk", productHandler.HandleProducts)
-	// http.HandleFunc("/api/produk/", productHandler.HandleProductByID)
+	http.HandleFunc("/api/produk/", productHandler.HandleProductByID)
 
 	// localhost:8080/health
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
